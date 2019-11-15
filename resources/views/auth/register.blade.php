@@ -7,7 +7,7 @@
             <br>
             <div class="container shadow p-3 mb-5 bg-white rounded">
                 <h4 class="text-spacing-25 text-transform-none">Register</h4>
-                <form class="rd-form rd-mailform" method="POST" action="{{ route('login') }}">
+                <form class="rd-form rd-mailform" method="POST" action="{{ route('register') }}">
                     @csrf
                     <div class="form-group row">
                         <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
