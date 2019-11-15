@@ -103,25 +103,4 @@ Route::get('Factura/view', function(){
     Rutas evaluacion factura.
  */
 
- Route::get('FacturaEv/insert', function(){
-     return view('FacturaEv/insert');
- })->name('evFacturaInsert');
-
- Route::get('FacturaEv/view','ControladorFactura@ViewFact')->name('ViewFactEv');
-
- Route::post('FacturaEv/insert','ControladorFactura@InsertFact')->name('InsertFactEv');
-
-
- /*
-    Rutas evaluacion abono
- */ 
-
- Route::get('AbonoEv/insert','ControladorAbono@ViewInsertAbono')->name('ViewInsertAbono');
-
- Route::post('AbonoEv/insert','ControladorAbono@InsertAbono')->name('InsertAbonoEv');
-
- Route::get('AbonoEv/view{id}','ControladorAbono@ViewAbono')->name('ViewAbono');
-
-
-
-Route::resource('salario', 'ControladorSalario');
+ 
