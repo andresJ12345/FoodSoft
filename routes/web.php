@@ -24,4 +24,3 @@ Route::get('menu/', function () {
     return view('menu');
 });
 #endregion
-Route::resource('salario', 'ControladorSalario');
