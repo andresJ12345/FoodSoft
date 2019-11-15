@@ -110,6 +110,7 @@
   <script src="{{ asset('js/popper.min.js') }}"></script>
   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('themes/site/js/core.min.js') }}"></script>
+  <script src="{{ asset('themes/site/js/script.js') }}"></script>
 </body>
 
 </html>
