@@ -34,7 +34,12 @@
                     <div class="form-group row">
                         <label for="rol" class="col-md-4 col-form-label text-md-right">{{ __('Rol') }}</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control @error('rol') is-invalid @enderror" name="rol" value="{{ old('rol') }}" required autocomplete="rol">
+                            <select name="rol" id="" class="form-control @error('rol') is-invalid @enderror" required autocomplete="rol">
+                                <option value="">Seleccione...</option>
+                                <option value="Administrador">Administrador</option>
+                                <option value="Empleado">Empleado</option>
+                                <option value="Cliente">Cliente</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
