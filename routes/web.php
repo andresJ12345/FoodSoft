@@ -24,3 +24,8 @@ Route::get('menu/', function () {
     return view('menu');
 });
 #endregion
+
+
+#region
+Route::get('Vendedor/insert','VendedorController@ViewPro')->name('ViewProveedor');
+#endregion
