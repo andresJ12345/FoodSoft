@@ -154,6 +154,12 @@
                                             <li><a href="{{ route('ingrediente.index') }}">Listado</a></li>
                                         </ul>
                                     </li>
+                                    <li><a href="#">Cliente</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{{ route('insertarcli') }}">Registrar</a></li>
+                                            <li><a href="{{ route('ViewCliente') }}">Listado</a></li>
+                                        </ul>
+                                    </li>
                                     {{-- <li><a href="#">Pages</a>
                                       <ul class="dropdown">
                                           <li><a href="{{ route('home') }}">Inicio</a></li>
@@ -221,9 +227,9 @@
                                         </div>
                                     </div>
                                 </li> --}}
-                                <li><a href="receipe-post.html">Receipies</a></li>
-                                <li><a href="receipe-post.html">4 Vegans</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="{{ asset('themes/delicious/receipe-post.html') }}">Receipies</a></li>
+                                <li><a href="{{ asset('themes/delicious/receipe-post.html') }}">4 Vegans</a></li>
+                                {{-- <li><a href="{ asset('themes/delicious/contact.html') }}">Contact</a></li> --}}
                                 </ul>
 
                                 <!-- Newsletter Form -->
@@ -240,7 +246,7 @@
         </div>
     </header>
     @yield('contenido')
-    <footer class="footer-area" style="bottom:0px; position: relative;">
+    <footer class="footer-area" style="bottom:0;">
         <div class="container h-100">
             <div class="row h-100">
                 <div class="col-12 h-100 d-flex flex-wrap align-items-center justify-content-between">

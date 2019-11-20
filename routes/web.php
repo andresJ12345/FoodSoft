@@ -27,3 +27,20 @@ Route::get('menu/', function () {
 Route::resource('ingrediente','IngredienteController');
 
 #endregion
+
+Route::get('Cliente/view',function() {
+
+    return view('Cliente/view');
+})->name('viewcli');
+
+Route::get('Cliente/insert','ClienteController@insertCliente')->name('insertarcli');
+
+Route::get('Cliente/view','ClienteController@ViewCli')->name('ViewCliente');
+
+Route::get('Cliente/delete/{id}','ClienteController@DeleteCli')->name('DeleteCliente');
+
+Route::get('Cliente/update/{id}','ClienteController@UpdateCli')->name('UpdateCliente');
+
+Route::post('Cliente/insert','ClienteController@InsertCli')->name('InsertCliente');
+
+Route::post('Cliente/update','ClienteController@UpdateBdCli')->name('UpdateBdCliente');

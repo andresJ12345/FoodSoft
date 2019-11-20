@@ -38,13 +38,26 @@ class IngredienteController extends Controller
      */
     public function store(Request $request)
     {
+        $mensajes = [
+            'ingrediente_nombre.required' => "El campo Nombre es requerido",
+            'ingrediente_marca.required' => "El campo Marca es requerido",
+            'ingrediente_precio.digits_between' => 'El limite de digitos es 5.',
+            'ingrediente_precio.required' => "El campo Precio es requerido",
+            'ingrediente_precio.numeric' => 'Solo se aceptan numeros.',
+            'ingrediente_cantidad_disponible.required' => "El campo Cantidad Disponible es requerido",
+            'ingrediente_cantidad_disponible.digits_between' => 'El limite de digitos es 4.',
+            'ingrediente_cantidad_disponible.numeric' => 'Solo se aceptan numeros.',
+            'ingrediente_fecha_vencimiento.required' => "El campo Fecha de Vencimiento es requerido",
+            'ingrediente_fecha_vencimiento.after_or_equal' => "La fecha no puede ser menor o igual a la de hoy.",
+        ];
+        
         $request->validate([
-            'ingrediente_nombre' => 'required',
-            'ingrediente_marca' => 'required',
-            'ingrediente_precio' => 'required',
-            'ingrediente_cantidad_disponible' => 'required',
-            'ingrediente_fecha_vencimiento' => 'required'
-        ]);
+            'ingrediente_nombre' => 'required|max:191',
+            'ingrediente_marca' => 'required|max:191',
+            'ingrediente_precio' => 'required|digits_between:4,5|numeric',
+            'ingrediente_cantidad_disponible' => 'required|digits_between:2,4|numeric',
+            'ingrediente_fecha_vencimiento' => 'required|after_or_equal:' . date("d-m-Y")
+        ],$mensajes);
 
         $ori = new App\Ingrediente();
         $ori->ingrediente_nombre = $request->ingrediente_nombre;
@@ -94,13 +107,26 @@ class IngredienteController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $mensajes = [
+            'ingrediente_nombre.required' => "El campo Nombre es requerido",
+            'ingrediente_marca.required' => "El campo Marca es requerido",
+            'ingrediente_precio.digits_between' => 'El limite de digitos es 5.',
+            'ingrediente_precio.required' => "El campo Precio es requerido",
+            'ingrediente_precio.numeric' => 'Solo se aceptan numeros.',
+            'ingrediente_cantidad_disponible.required' => "El campo Cantidad Disponible es requerido",
+            'ingrediente_cantidad_disponible.digits_between' => 'El limite de digitos es 4.',
+            'ingrediente_cantidad_disponible.numeric' => 'Solo se aceptan numeros.',
+            'ingrediente_fecha_vencimiento.required' => "El campo Fecha de Vencimiento es requerido",
+            'ingrediente_fecha_vencimiento.after_or_equal' => "La fecha no puede ser menor o igual a la de hoy.",
+        ];
+        
         $request->validate([
-            'ingrediente_nombre' => 'required',
-            'ingrediente_marca' => 'required',
-            'ingrediente_precio' => 'required',
-            'ingrediente_cantidad_disponible' => 'required',
-            'ingrediente_fecha_vencimiento' => 'required'
-        ]);
+            'ingrediente_nombre' => 'required|max:191',
+            'ingrediente_marca' => 'required|max:191',
+            'ingrediente_precio' => 'required|digits_between:4,5|numeric',
+            'ingrediente_cantidad_disponible' => 'required|digits_between:2,4|numeric',
+            'ingrediente_fecha_vencimiento' => 'required|after_or_equal:' . date("d-m-Y")
+        ],$mensajes);
         $ori = App\Ingrediente::find($id);
 
         $ori->ingrediente_nombre = $request->ingrediente_nombre;
@@ -122,12 +148,10 @@ class IngredienteController extends Controller
      */
     public function destroy($id)
     {
-        /*$ori = App\Ingrediente::Find($id);
+        $ori = App\Ingrediente::Find($id);
 
         $ori->delete();
 
-        return redirect()->route('ingrediente.index');*/
-
-        echo "Llega";
+        return redirect()->route('ingrediente.index');
     }
 }

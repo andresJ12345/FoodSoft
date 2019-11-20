@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App;
 
 class ClienteController extends Controller
 {
@@ -15,10 +16,10 @@ class ClienteController extends Controller
             'cliente_nombre' => 'required',
             'cliente_apellido' => 'required',
             'cliente_tipo_documento' =>'required',
-            'cliente_num_doc' => 'required|numeric',
-            'cliente_edad' => 'required|numeric',
+            'cliente_num_doc' => 'required|numeric|digits_between:1,16',
+            'cliente_edad' => 'required|numeric|digits_between:1,3',
             'cliente_direccion' => 'required',
-            'cliente_telefono' => 'required'
+            'cliente_telefono' => 'required|numeric|digits_between:1,16'
 
 
         ]);
@@ -53,16 +54,36 @@ class ClienteController extends Controller
 
         }
 
-        public function UpdateCli($id)
+        public function UpdateCli($cliente_id)
         {
-            $updatecliente= App\Cliente::FindOrFail($id);
+            $updatecliente= App\Cliente::FindOrFail($cliente_id);
             return view('Cliente/update',compact('updatecliente'));
+
+
+        }
+
+        public function insertCliente()
+        {
+            
+            return view('Cliente/insert');
 
 
         }
 
         public function UpdateBdCli(Request $cliente)
         {
+            $cliente->validate([
+
+                'cliente_nombre' => 'required',
+                'cliente_apellido' => 'required',
+                'cliente_tipo_documento' =>'required',
+                'cliente_num_doc' => 'required|numeric|digits_between:1,16',
+                'cliente_edad' => 'required|numeric|digits_between:1,3',
+                'cliente_direccion' => 'required',
+                'cliente_telefono' => 'required|numeric|digits_between:1,16'
+    
+    
+            ]);
 
             $instanciacliente = App\Cliente:: FindOrFail($cliente->id);
             $instanciacliente->cliente_nombre = $cliente->cliente_nombre;
@@ -79,5 +100,3 @@ class ClienteController extends Controller
         }
     
 }
-
-
