@@ -46,14 +46,16 @@ class IngredienteController extends Controller
             'ingrediente_fecha_vencimiento' => 'required'
         ]);
 
-        $ining = new App\Ingrediente();
-        $ining->ingrediente_nombre = $request->ingrediente_nombre;
-        $ining->ingrediente_marca = $request->ingrediente_marca;
-        $ining->ingrediente_precio = $request->ingrediente_precio;
-        $ining->ingrediente_cantidad_disponible = $request->ingrediente_cantidad_disponible;
-        $ining->ingrediente_fecha_vencimiento = $request->ingrediente_fecha_vencimiento;
+        $ori = new App\Ingrediente();
+        $ori->ingrediente_nombre = $request->ingrediente_nombre;
+        $ori->ingrediente_marca = $request->ingrediente_marca;
+        $ori->ingrediente_precio = $request->ingrediente_precio;
+        $ori->ingrediente_cantidad_disponible = $request->ingrediente_cantidad_disponible;
+        $ori->ingrediente_fecha_vencimiento = $request->ingrediente_fecha_vencimiento;
 
-        $ining->save();
+        $ori->save();
+
+        return redirect()->route('ingrediente.index');
     }
     
 
@@ -65,7 +67,7 @@ class IngredienteController extends Controller
      */
     public function show($id)
     {
-        $ori = App\Ingrediente::where('ingrediente_id',$id)->get();
+        $ori = App\Ingrediente::find($id);
 
         return view('Ingredientes/detail',compact('ori'));
     }
@@ -78,7 +80,9 @@ class IngredienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ori = App\Ingrediente::find($id);
+
+        return view('Ingredientes/update',compact('ori'));
     }
 
     /**
@@ -90,7 +94,24 @@ class IngredienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'ingrediente_nombre' => 'required',
+            'ingrediente_marca' => 'required',
+            'ingrediente_precio' => 'required',
+            'ingrediente_cantidad_disponible' => 'required',
+            'ingrediente_fecha_vencimiento' => 'required'
+        ]);
+        $ori = App\Ingrediente::find($id);
+
+        $ori->ingrediente_nombre = $request->ingrediente_nombre;
+        $ori->ingrediente_marca = $request->ingrediente_marca;
+        $ori->ingrediente_precio = $request->ingrediente_precio;
+        $ori->ingrediente_cantidad_disponible = $request->ingrediente_cantidad_disponible;
+        $ori->ingrediente_fecha_vencimiento = $request->ingrediente_fecha_vencimiento;
+
+        $ori->update();
+
+        return redirect()->route('ingrediente.index');
     }
 
     /**
@@ -101,6 +122,12 @@ class IngredienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        /*$ori = App\Ingrediente::Find($id);
+
+        $ori->delete();
+
+        return redirect()->route('ingrediente.index');*/
+
+        echo "Llega";
     }
 }

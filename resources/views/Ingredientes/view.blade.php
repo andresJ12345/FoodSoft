@@ -20,9 +20,8 @@
                     <td>{{ $i->ingrediente_precio }}</td>
                     <td>{{ $i->ingrediente_cantidad_disponible }}</td>
                     <td>
-                        <a href="{{ route('ingrediente.show', $i->ingrediente_id) }}"><img src="{{ asset('css/svg/eye.svg') }}" alt=""></a>
-                        <a href="#"><img src="{{ asset('css/svg/sync.svg') }}" alt=""></a>
-                        <a href="#"><img src="{{ asset('css/svg/x.svg') }}" alt=""></a>
+                        <a href="{{ route('ingrediente.show', $i->id) }}"><img src="{{ asset('css/svg/eye.svg') }}" alt=""></a>
+                        <a href="{{ route('ingrediente.edit', $i->id) }}"><img src="{{ asset('css/svg/sync.svg') }}" alt=""></a>
                     </td>
                 </tr>
                 @endforeach

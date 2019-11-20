@@ -14,12 +14,12 @@ class CreateIngredientesTable extends Migration
     public function up()
     {
         Schema::create('ingredientes', function (Blueprint $table) {
-            $table->bigIncrements('ingrediente_id');
+            $table->bigIncrements('id');
             $table->string('ingrediente_nombre');
             $table->string('ingrediente_cantidad_disponible');
             $table->string('ingrediente_marca');
             $table->integer('ingrediente_precio');
-            $table->timestamp('ingrediente_fecha_vencimiento');
+            $table->date('ingrediente_fecha_vencimiento');
             $table->timestamps();
         });
     }

@@ -15,6 +15,7 @@
         href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/aplication.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
@@ -73,7 +74,7 @@
                             <div id="breakingNewsTicker" class="ticker">
                                 <ul>
                                     <li><a href="#">Hello World!</a></li>
-                                    <li><a href="#">Welcome to Colorlib Family.</a></li>
+                                    <li><a href="#">Welcome to FoodSoft.</a></li>
                                     <li><a href="#">Hello Delicious!</a></li>
                                 </ul>
                             </div>
@@ -128,7 +129,7 @@
                     <nav class="classy-navbar justify-content-between" id="deliciousNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                        <a class="nav-brand" href="{{ route('home') }}"><img src="{{ asset('themes/delicious/img/core-img/logo.png') }}" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -239,81 +240,7 @@
         </div>
     </header>
     @yield('contenido')
-    <div class="follow-us-instagram">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h5>Follow Us Instragram</h5>
-                </div>
-            </div>
-        </div>
-        {{-- <!-- Instagram Feeds -->
-      <div class="insta-feeds d-flex flex-wrap">
-          <!-- Single Insta Feeds -->
-          <div class="single-insta-feeds">
-              <img src="img/bg-img/insta1.jpg" alt="">
-              <!-- Icon -->
-              <div class="insta-icon">
-                  <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-              </div>
-          </div>
-
-          <!-- Single Insta Feeds -->
-          <div class="single-insta-feeds">
-              <img src="img/bg-img/insta2.jpg" alt="">
-              <!-- Icon -->
-              <div class="insta-icon">
-                  <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-              </div>
-          </div>
-
-          <!-- Single Insta Feeds -->
-          <div class="single-insta-feeds">
-              <img src="img/bg-img/insta3.jpg" alt="">
-              <!-- Icon -->
-              <div class="insta-icon">
-                  <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-              </div>
-          </div>
-
-          <!-- Single Insta Feeds -->
-          <div class="single-insta-feeds">
-              <img src="img/bg-img/insta4.jpg" alt="">
-              <!-- Icon -->
-              <div class="insta-icon">
-                  <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-              </div>
-          </div>
-
-          <!-- Single Insta Feeds -->
-          <div class="single-insta-feeds">
-              <img src="img/bg-img/insta5.jpg" alt="">
-              <!-- Icon -->
-              <div class="insta-icon">
-                  <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-              </div>
-          </div>
-
-          <!-- Single Insta Feeds -->
-          <div class="single-insta-feeds">
-              <img src="img/bg-img/insta6.jpg" alt="">
-              <!-- Icon -->
-              <div class="insta-icon">
-                  <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-              </div>
-          </div>
-
-          <!-- Single Insta Feeds -->
-          <div class="single-insta-feeds">
-              <img src="img/bg-img/insta7.jpg" alt="">
-              <!-- Icon -->
-              <div class="insta-icon">
-                  <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-              </div>
-          </div>
-      </div> --}}
-    </div>
-    <footer class="footer-area">
+    <footer class="footer-area" style="bottom:0px; position: relative;">
         <div class="container h-100">
             <div class="row h-100">
                 <div class="col-12 h-100 d-flex flex-wrap align-items-center justify-content-between">
@@ -328,7 +255,7 @@
                     </div>
                     <!-- Footer Logo -->
                     <div class="footer-logo">
-                        <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="index.html"><img src="{{ asset('themes/delicious/img/core-img/logo.png') }}" alt=""></a>
                     </div>
                     <!-- Copywrite -->
                     <p>

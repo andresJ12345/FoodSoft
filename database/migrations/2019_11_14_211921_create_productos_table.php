@@ -14,12 +14,12 @@ class CreateProductosTable extends Migration
     public function up()
     {
         Schema::create('productos', function (Blueprint $table) {
-            $table->bigIncrements('producto_id');
+            $table->bigIncrements('id');
             $table->string('producto_nombre');
             $table->string('producto_tamanio');
             $table->integer('precio');
             $table->unsignedBigInteger('receta_rec_id');
-            $table->foreign('receta_rec_id')->references('receta_id')->on('Recetas');
+            $table->foreign('receta_rec_id')->references('id')->on('Recetas');
             $table->timestamps();
         });
     }

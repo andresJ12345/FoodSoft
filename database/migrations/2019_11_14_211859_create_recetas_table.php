@@ -14,7 +14,7 @@ class CreateRecetasTable extends Migration
     public function up()
     {
         Schema::create('recetas', function (Blueprint $table) {
-            $table->bigIncrements('receta_id');
+            $table->bigIncrements('id');
             $table->string('receta_nombre');
             $table->time('receta_tiempo_preparacion');
             $table->text('receta_metodo_preparacion');
