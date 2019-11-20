@@ -11,10 +11,7 @@
 |
 */
 
-/*
-    Rutas inicio y menu.
-*/
-#region
+#region Rutas inicio y menu.
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
@@ -23,4 +20,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('menu/', function () {
     return view('menu');
 });
+#endregion
+
+#region Rutas Ingrediente
+
+Route::resource('ingrediente','IngredienteController');
+
 #endregion
