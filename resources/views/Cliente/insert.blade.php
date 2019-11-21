@@ -10,14 +10,14 @@
             <div class="form-row">
                 <div class="col">
                     @error ('cliente_nombre')
-                    <div class="ui orange message">{{$errors->first('cliente_nombre')}}</div>
+                    <div class="alert">{{$errors->first('cliente_nombre')}}</div>
                     @enderror
                     <label for="ingrediente_nombre">Nombre</label>
                     <input type="text" name="cliente_nombre" id="cliente_nombre" class="form-control" value="{{old('cliente_nombre')}}">
                 </div>
                 <div class="col">
                     @error ('cliente_apellido')
-                    <div class="ui orange message">{{$errors->first('cliente_apellido')}}</div>
+                    <div class="alert">{{$errors->first('cliente_apellido')}}</div>
                     @enderror
                     <label for="ingrediente_marca">Apellido</label>
                     <input type="text" name="cliente_apellido" id="cliente_apellido" class="form-control" value="{{old('cliente_apellido')}}">
@@ -26,14 +26,14 @@
             <div class="form-row">
                 <div class="col">
                     @error ('cliente_tipo_documento')
-                    <div class="ui orange message">{{$errors->first('cliente_tipo_documento')}}</div>
+                    <div class="alert">{{$errors->first('cliente_tipo_documento')}}</div>
                     @enderror
                     <label for="ingrediente_precio">Tipo Documento</label>
                     <input type="text" name="cliente_tipo_documento" id="cliente_tipo_documento" class="form-control" value="{{old('cliente_tipo_documento')}}">
                 </div>
                 <div class="col">
                     @error ('cliente_num_doc')
-                    <div class="ui orange message">{{$errors->first('cliente_num_doc')}}</div>
+                    <div class="alert">{{$errors->first('cliente_num_doc')}}</div>
                     @enderror
                     <label for="ingrediente_cantidad_disponible">Numero Documento </label>
                     <input type="number" name="cliente_num_doc" id="cliente_num_doc" class="form-control"value="{{old('cliente_num_doc')}}">
@@ -42,7 +42,7 @@
             <div class="form-row">
                 <div class="col">
                     @error ('cliente_edad')
-                    <div class="ui orange message">{{$errors->first('cliente_edad')}}</div>
+                    <div class="alert">{{$errors->first('cliente_edad')}}</div>
                     @enderror
                     <label for="ingrediente_fecha_vencimiento">Edad </label>
                 <input type="number" name="cliente_edad" id="cliente_edad" class="form-control" value="{{old('cliente_edad')}}">
@@ -51,7 +51,7 @@
                     <div class="col">
                         <div class="field">
                             @error ('cliente_direccion')
-                        <div class="ui orange message">{{$errors->first('cliente_direccion')}}</div>
+                        <div class="alert">{{$errors->first('cliente_direccion')}}</div>
                             @enderror
                         <label for="ingrediente_fecha_vencimiento">Direccion </label>
                         <input type="text" name="cliente_direccion" id="cliente_direccion" class="form-control" value="{{old('cliente_direccion')}}">
@@ -62,7 +62,7 @@
                         <div class="col">
                             <div class="field">
                                 @error ('cliente_telefono')
-                                <div class="ui orange message">{{$errors->first('cliente_telefono')}}</div>
+                                <div class="alert">{{$errors->first('cliente_telefono')}}</div>
                                 @enderror
                             <label for="ingrediente_fecha_vencimiento">Telefono </label>
                             <input type="number" name="cliente_telefono" id="cliente_telefono" class="form-control" value="{{old('cliente_telefono')}}">

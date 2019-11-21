@@ -15,7 +15,7 @@ class IngredienteController extends Controller
      */
     public function index()
     {
-        $ori = App\Ingrediente::all();
+        $ori = App\Ingrediente::paginate(10);
 
         return view('Ingredientes/view',compact('ori'));
     }
@@ -40,20 +40,22 @@ class IngredienteController extends Controller
     {
         $mensajes = [
             'ingrediente_nombre.required' => "El campo Nombre es requerido",
+            'ingrediente_nombre.max' => "El campo Nombre excede los 45 caracteres permitidos.",
             'ingrediente_marca.required' => "El campo Marca es requerido",
-            'ingrediente_precio.digits_between' => 'El limite de digitos es 5.',
+            'ingrediente_marca.max' => "El campo Marca excede los 45 caracteres permitidos.",
+            'ingrediente_precio.digits_between' => 'El campo Precio debe tener entre 4 y 5 digitos.',
             'ingrediente_precio.required' => "El campo Precio es requerido",
             'ingrediente_precio.numeric' => 'Solo se aceptan numeros.',
             'ingrediente_cantidad_disponible.required' => "El campo Cantidad Disponible es requerido",
-            'ingrediente_cantidad_disponible.digits_between' => 'El limite de digitos es 4.',
+            'ingrediente_cantidad_disponible.digits_between' => 'El campo Cantidad Disponible debe tener entre 2 y 4 digitos',
             'ingrediente_cantidad_disponible.numeric' => 'Solo se aceptan numeros.',
             'ingrediente_fecha_vencimiento.required' => "El campo Fecha de Vencimiento es requerido",
-            'ingrediente_fecha_vencimiento.after_or_equal' => "La fecha no puede ser menor o igual a la de hoy.",
+            'ingrediente_fecha_vencimiento.after_or_equal' => "La Fecha de Vencimiento no puede ser menor o igual a la de hoy.",
         ];
         
         $request->validate([
-            'ingrediente_nombre' => 'required|max:191',
-            'ingrediente_marca' => 'required|max:191',
+            'ingrediente_nombre' => 'required|max:45',
+            'ingrediente_marca' => 'required|max:45',
             'ingrediente_precio' => 'required|digits_between:4,5|numeric',
             'ingrediente_cantidad_disponible' => 'required|digits_between:2,4|numeric',
             'ingrediente_fecha_vencimiento' => 'required|after_or_equal:' . date("d-m-Y")
@@ -109,24 +111,27 @@ class IngredienteController extends Controller
     {
         $mensajes = [
             'ingrediente_nombre.required' => "El campo Nombre es requerido",
+            'ingrediente_nombre.max' => "El campo Nombre excede los 45 caracteres permitidos.",
             'ingrediente_marca.required' => "El campo Marca es requerido",
-            'ingrediente_precio.digits_between' => 'El limite de digitos es 5.',
+            'ingrediente_marca.max' => "El campo Marca excede los 45 caracteres permitidos.",
+            'ingrediente_precio.digits_between' => 'El campo Precio debe tener entre 4 y 5 digitos.',
             'ingrediente_precio.required' => "El campo Precio es requerido",
             'ingrediente_precio.numeric' => 'Solo se aceptan numeros.',
             'ingrediente_cantidad_disponible.required' => "El campo Cantidad Disponible es requerido",
-            'ingrediente_cantidad_disponible.digits_between' => 'El limite de digitos es 4.',
+            'ingrediente_cantidad_disponible.digits_between' => 'El campo Cantidad Disponible debe tener entre 2 y 4 digitos',
             'ingrediente_cantidad_disponible.numeric' => 'Solo se aceptan numeros.',
             'ingrediente_fecha_vencimiento.required' => "El campo Fecha de Vencimiento es requerido",
-            'ingrediente_fecha_vencimiento.after_or_equal' => "La fecha no puede ser menor o igual a la de hoy.",
+            'ingrediente_fecha_vencimiento.after_or_equal' => "La Fecha de Vencimiento no puede ser menor o igual a la de hoy.",
         ];
         
         $request->validate([
-            'ingrediente_nombre' => 'required|max:191',
-            'ingrediente_marca' => 'required|max:191',
+            'ingrediente_nombre' => 'required|max:45',
+            'ingrediente_marca' => 'required|max:45',
             'ingrediente_precio' => 'required|digits_between:4,5|numeric',
             'ingrediente_cantidad_disponible' => 'required|digits_between:2,4|numeric',
             'ingrediente_fecha_vencimiento' => 'required|after_or_equal:' . date("d-m-Y")
         ],$mensajes);
+
         $ori = App\Ingrediente::find($id);
 
         $ori->ingrediente_nombre = $request->ingrediente_nombre;

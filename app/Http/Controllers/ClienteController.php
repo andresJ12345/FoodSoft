@@ -13,12 +13,12 @@ class ClienteController extends Controller
 
         $cliente->validate([
 
-            'cliente_nombre' => 'required',
-            'cliente_apellido' => 'required',
+            'cliente_nombre' => 'required|max:45',
+            'cliente_apellido' => 'required|max:45',
             'cliente_tipo_documento' =>'required',
             'cliente_num_doc' => 'required|numeric|digits_between:1,16',
             'cliente_edad' => 'required|numeric|digits_between:1,3',
-            'cliente_direccion' => 'required',
+            'cliente_direccion' => 'required|max:100',
             'cliente_telefono' => 'required|numeric|digits_between:1,16'
 
 
@@ -40,7 +40,7 @@ class ClienteController extends Controller
 
     public function ViewCli()
         {
-            $objetoretornado = App\Cliente::paginate(4);
+            $objetoretornado = App\Cliente::paginate(5);
             return view('Cliente/view',compact('objetoretornado'));
         }
 
@@ -74,12 +74,12 @@ class ClienteController extends Controller
         {
             $cliente->validate([
 
-                'cliente_nombre' => 'required',
-                'cliente_apellido' => 'required',
+                'cliente_nombre' => 'required|max:45',
+                'cliente_apellido' => 'required|max:45',
                 'cliente_tipo_documento' =>'required',
                 'cliente_num_doc' => 'required|numeric|digits_between:1,16',
                 'cliente_edad' => 'required|numeric|digits_between:1,3',
-                'cliente_direccion' => 'required',
+                'cliente_direccion' => 'required|max:100',
                 'cliente_telefono' => 'required|numeric|digits_between:1,16'
     
     
