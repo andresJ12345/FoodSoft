@@ -2,347 +2,285 @@
 <html lang="en" class="h-100">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Jekyll v3.8.5">
-  <title>Papeleria con Laravel</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>FoodSoft</title>
 
-  <link rel="icon" href="{{ asset('themes/site/images/favicon.ico') }}">
+    <link rel="icon" href="{{ asset('themes/delicious/img/core-img/favicon.ico') }}">
 
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
-  <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
-  <script src="{{ asset('js/aplication.js') }}"></script>
+    <link rel="stylesheet" type="text/css"
+        href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
+    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ asset('js/aplication.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
-  <!-- Custom styles for this template -->
-  <link href="sticky-footer-navbar.css" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('themes/site/css/fonts.css') }}">
-  <link rel="stylesheet" href="{{ asset('themes/site/css/style.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('themes/delicious/style.css') }}">
 </head>
 
-<body class="d-flex flex-column h-100">
-  <header>
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('img/logo.png') }}" alt="" width="30" height="30"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-          
-        </ul>
-      </div>
-      <!-- Right Side Of Navbar -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Left Side Of Navbar -->
-        <ul class="navbar-nav mr-auto">
-
-        </ul>
-
-        <!-- Right Side Of Navbar -->
-        <ul class="navbar-nav ml-auto">
-            <!-- Authentication Links -->
-            @guest
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-                @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </li>
-                @endif
-            @else
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
-                </li>
-            @endguest
-        </ul>
+<body>
+    <div id="preloader">
+        <i class="circle-preloader"></i>
+        <img src="{{ asset('themes/delicious/img/core-img/salad.png') }}" alt="">
     </div>
-    </nav>
-  </header>
-  <main class="flex-shrink-0" role="main">
-    <div class="container">
-      <br><br><br>
-      @yield('textoAqui')
-    </div>
-  </main>
-  <footer class="footer mt-auto py-3">
-    <div class="container-fluid">
-      <span class="text-muted">Place sticky footer content here.</span>
-    </div>
-<<<<<<< Updated upstream
-  </footer>
-=======
-  </footer> -->
-  <div class="page">
-      <!-- Page Header-->
-      <header class="section page-header">
-        <!-- RD Navbar-->
-        <div class="rd-navbar-wrap">
-          <nav class="rd-navbar rd-navbar-modern" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="56px" data-xl-stick-up-offset="56px" data-xxl-stick-up-offset="56px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
-            <div class="rd-navbar-inner-outer">
-              <div class="rd-navbar-inner">
-                <!-- RD Navbar Panel-->
-                <div class="rd-navbar-panel">
-                  <!-- RD Navbar Toggle-->
-                  <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
-                  <!-- RD Navbar Brand-->
-                  <div class="rd-navbar-brand"><a class="brand" href="index.html"><img class="brand-logo-dark" src="images/logo-198x66.png" alt="" width="198" height="66"/></a></div>
-                </div>
-                <div class="rd-navbar-right rd-navbar-nav-wrap">
-                  <div class="rd-navbar-aside">
-                    <ul class="rd-navbar-contacts-2">
-                      <li>
-                        <div class="unit unit-spacing-xs">
-                          <div class="unit-left"><span class="icon mdi mdi-phone"></span></div>
-                          <div class="unit-body"><a class="phone" href="tel:#">+1 718-999-3939</a></div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="unit unit-spacing-xs">
-                          <div class="unit-left"><span class="icon mdi mdi-map-marker"></span></div>
-                          <div class="unit-body"><a class="address" href="#">514 S. Magnolia St. Orlando, FL 32806</a></div>
-                        </div>
-                      </li>
-                    </ul>
-                    <ul class="list-share-2">
-                      <li><a class="icon mdi mdi-facebook" href="#"></a></li>
-                      <li><a class="icon mdi mdi-twitter" href="#"></a></li>
-                      <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                      <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
-                    </ul>
-                  </div>
-                  <div class="rd-navbar-main">
-                    <!-- RD Navbar Nav-->
-                    <ul class="rd-navbar-nav">
-                      <li class="rd-nav-item active"><a class="rd-nav-link" href="{{ route('home') }}">Home</a>
-                      </li>
-                      <li class="rd-nav-item"><a class="rd-nav-link" href="#">About us</a>
-                      </li>
-                      <li class="rd-nav-item"><a class="rd-nav-link" href="#">Contacts</a>
-                      </li>            
-                      @guest
-                        <li class="rd-nav-item">
-                          <a class="rd-nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                          <li class="rd-nav-item">
-                            <a class="rd-nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                          </li>
-                        @endif
-                        @else
-                          <li class="rd-nav-item">
-                            <a class="rd-nav-link" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                              {{ __('Logout') }}
-                            </a>
-                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                          @csrf
-                          </form>
-                        </li>
-                      @endguest
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="rd-navbar-project-hamburger rd-navbar-project-hamburger-open rd-navbar-fixed-element-1" data-multitoggle=".rd-navbar-inner" data-multitoggle-blur=".rd-navbar-wrap" data-multitoggle-isolate="data-multitoggle-isolate">
-                  <div class="project-hamburger"><span class="project-hamburger-arrow"></span><span class="project-hamburger-arrow"></span><span class="project-hamburger-arrow"></span>
-                  </div>
-                </div>
-                <div class="rd-navbar-project">
-                  <div class="rd-navbar-project-header">
-                    <h5 class="rd-navbar-project-title">Gallery</h5>
-                    <div class="rd-navbar-project-hamburger rd-navbar-project-hamburger-close" data-multitoggle=".rd-navbar-inner" data-multitoggle-blur=".rd-navbar-wrap" data-multitoggle-isolate="data-multitoggle-isolate">
-                      <div class="project-close"><span></span><span></span></div>
-                    </div>
-                  </div>
-                  <div class=" rd-navbar-content">
-                    <div>
-                      <!--espacio para acceder a la ventana del vendedor -->
-                        <div class="col-6">
-                          <a href="{{ route('ViewProveedor') }}">
-                          <img src="{{ asset('Img/business.png') }}" width="50px" height="50px">
-                          <h2>Vendedor</h2>
-                          </a>
-                        </div>
 
+    <div class="search-wrapper">
+        <!-- Close Btn -->
+        <div class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></div>
 
-
-                        <div class="col-6">
-                          <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="images/project-3-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="images/project-3-195x164.jpg" alt="" width="195" height="164"/>
-                              </div>
-                              <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
-                        </div>
-                        <div class="col-6">
-                          <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="images/project-4-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="images/project-4-195x164.jpg" alt="" width="195" height="164"/>
-                              </div>
-                              <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
-                        </div>
-                        <div class="col-6">
-                          <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="images/project-5-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="images/project-5-195x164.jpg" alt="" width="195" height="164"/>
-                              </div>
-                              <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
-                        </div>
-                        <div class="col-6">
-                          <!-- Thumbnail Creative-->
-                          <article class="thumbnail thumbnail-creative"><a href="images/project-6-1200x800-original.jpg" data-lightgallery="item">
-                              <div class="thumbnail-creative-figure"><img src="images/project-6-195x164.jpg" alt="" width="195" height="164"/>
-                              </div>
-                              <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form action="#" method="post">
+                        <input type="search" name="search" placeholder="Type any keywords...">
+                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form>
                 </div>
-              </div>
             </div>
-          </nav>
-      
-      </header>
-      @yield('contenido')
-      <!-- Page Footer-->
-      <footer class="section footer-modern context-dark footer-modern-2">
-        <div class="footer-modern-line">
-          <div class="container">
-            <div class="row row-50">
-              <div class="col-md-6 col-lg-4">
-                <h5 class="footer-modern-title oh-desktop"><span class="d-inline-block wow slideInLeft">What We Offer</span></h5>
-                <ul class="footer-modern-list d-inline-block d-sm-block wow fadeInUp">
-                  <li><a href="#">Pizzas</a></li>
-                  <li><a href="#">Burgers</a></li>
-                  <li><a href="#">Salads</a></li>
-                  <li><a href="#">Drinks</a></li>
-                  <li><a href="#">Seafood</a></li>
-                  <li><a href="#">Drinks</a></li>
-                </ul>
-              </div>
-              <div class="col-md-6 col-lg-4 col-xl-3">
-                <h5 class="footer-modern-title oh-desktop"><span class="d-inline-block wow slideInLeft">Information</span></h5>
-                <ul class="footer-modern-list d-inline-block d-sm-block wow fadeInUp">
-                  <li><a href="about-us.html">About us</a></li>
-                  <li><a href="#">Latest News</a></li>
-                  <li><a href="#">Our Menu</a></li>
-                  <li><a href="#">FAQ</a></li>
-                  <li><a href="#">Shop</a></li>
-                  <li><a href="contacts.html">Contact Us</a></li>
-                </ul>
-              </div>
-              <div class="col-lg-4 col-xl-5">
-                <h5 class="footer-modern-title oh-desktop"><span class="d-inline-block wow slideInLeft">Newsletter</span></h5>
-                <p class="wow fadeInRight">Sign up today for the latest news and updates.</p>
-                <!-- RD Mailform-->
-                <form class="rd-form rd-mailform rd-form-inline rd-form-inline-sm oh-desktop" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
-                  <div class="form-wrap wow slideInUp">
-                    <input class="form-input" id="subscribe-form-2-email" type="email" name="email" data-constraints="@Email @Required"/>
-                    <label class="form-label" for="subscribe-form-2-email">Enter your E-mail</label>
-                  </div>
-                  <div class="form-button form-button-2 wow slideInRight">
-                    <button class="button button-sm button-icon-3 button-primary button-winona" type="submit"><span class="d-none d-xl-inline-block">Subscribe</span><span class="icon mdi mdi-telegram d-xl-none"></span></button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
         </div>
-        <div class="footer-modern-line-2">
-          <div class="container">
-            <div class="row row-30 align-items-center">
-              <div class="col-sm-6 col-md-7 col-lg-4 col-xl-4">
-                <div class="row row-30 align-items-center text-lg-center">
-                  <div class="col-md-7 col-xl-6"><a class="brand" href="index.html"><img src="images/logo-inverse-198x66.png" alt="" width="198" height="66"/></a></div>
-                  <div class="col-md-5 col-xl-6">
-                    <div class="iso-1"><span><img src="images/like-icon-58x25.png" alt="" width="58" height="25"/></span><span class="iso-1-big">9.4k</span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-12 col-lg-8 col-xl-8 oh-desktop">
-                <div class="group-xmd group-sm-justify">
-                  <div class="footer-modern-contacts wow slideInUp">
-                    <div class="unit unit-spacing-sm align-items-center">
-                      <div class="unit-left"><span class="icon icon-24 mdi mdi-phone"></span></div>
-                      <div class="unit-body"><a class="phone" href="tel:#">+1 718-999-3939</a></div>
-                    </div>
-                  </div>
-                  <div class="footer-modern-contacts wow slideInDown">
-                    <div class="unit unit-spacing-sm align-items-center">
-                      <div class="unit-left"><span class="icon mdi mdi-email"></span></div>
-                      <div class="unit-body"><a class="mail" href="mailto:#">info@demolink.org</a></div>
-                    </div>
-                  </div>
-                  <div class="wow slideInRight">
-                    <ul class="list-inline footer-social-list footer-social-list-2 footer-social-list-3">
-                      <li><a class="icon mdi mdi-facebook" href="#"></a></li>
-                      <li><a class="icon mdi mdi-twitter" href="#"></a></li>
-                      <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                      <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="footer-modern-line-3">
-          <div class="container">
-            <div class="row row-10 justify-content-between">
-              <div class="col-md-6"><span>514 S. Magnolia St. Orlando, FL 32806</span></div>
-              <div class="col-md-auto">
-                <!-- Rights-->
-                <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span></span><span>.&nbsp;</span><span>All Rights Reserved.</span><span> Design&nbsp;by&nbsp;<a href="https://www.templatemonster.com">TemplateMonster</a></span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
->>>>>>> Stashed changes
-  <script src="{{ asset('js/popper.min.js') }}"></script>
-  <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('themes/site/js/core.min.js') }}"></script>
-  <script src="{{ asset('themes/site/js/script.js') }}"></script>
+    <header class="header-area">
+
+        <!-- Top Header Area -->
+        <div class="top-header-area">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center justify-content-between">
+                    <!-- Breaking News -->
+                    <div class="col-12 col-sm-6">
+                        <div class="breaking-news">
+                            <div id="breakingNewsTicker" class="ticker">
+                                <ul>
+                                    <li><a href="#">Hello World!</a></li>
+                                    <li><a href="#">Welcome to FoodSoft.</a></li>
+                                    <li><a href="#">Hello Delicious!</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Top Social Info -->
+                    <div class="col-12 col-sm-6">
+                        <div class="top-social-info text-right">
+                            <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            @guest
+                            <a href="{{ route('login') }}">Ingresar</a>
+                            @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Registrar</a>
+                            @endif
+                            @else
+                            <ul class="dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                           document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </ul>
+                            @endguest
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="delicious-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="deliciousNav">
+
+                        <!-- Logo -->
+                        <a class="nav-brand" href="{{ route('home') }}"><img src="{{ asset('themes/delicious/img/core-img/logo.png') }}" alt=""></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{{ route('home') }}">Inicio</a></li>
+                                    <li><a href="#">Ingrediente</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{{ route('ingrediente.create') }}">Registrar</a></li>
+                                            <li><a href="{{ route('ingrediente.index') }}">Listado</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Cliente</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{{ route('insertarcli') }}">Registrar</a></li>
+                                            <li><a href="{{ route('ViewCliente') }}">Listado</a></li>
+                                        </ul>
+                                    </li>
+                                    {{-- <li><a href="#">Pages</a>
+                                      <ul class="dropdown">
+                                          <li><a href="{{ route('home') }}">Inicio</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="blog-post.html">Blog Post</a></li>
+                                    <li><a href="receipe-post.html">Receipe Post</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="elements.html">Elements</a></li>
+                                    <li><a href="#">Dropdown</a>
+                                        <ul class="dropdown">
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="about.html">About Us</a></li>
+                                            <li><a href="blog-post.html">Blog Post</a></li>
+                                            <li><a href="receipe-post.html">Receipe Post</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="elements.html">Elements</a></li>
+                                            <li><a href="#">Dropdown</a>
+                                                <ul class="dropdown">
+                                                    <li><a href="index.html">Home</a></li>
+                                                    <li><a href="about.html">About Us</a></li>
+                                                    <li><a href="blog-post.html">Blog Post</a></li>
+                                                    <li><a href="receipe-post.html">Receipe Post</a></li>
+                                                    <li><a href="contact.html">Contact</a></li>
+                                                    <li><a href="elements.html">Elements</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                </li>
+                                <li><a href="#">Mega Menu</a>
+                                    <div class="megamenu">
+                                        <ul class="single-mega cn-col-4">
+                                            <li class="title">Catagory</li>
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="about.html">About Us</a></li>
+                                            <li><a href="blog-post.html">Blog Post</a></li>
+                                            <li><a href="receipe-post.html">Receipe Post</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="elements.html">Elements</a></li>
+                                        </ul>
+                                        <ul class="single-mega cn-col-4">
+                                            <li class="title">Catagory</li>
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="about.html">About Us</a></li>
+                                            <li><a href="blog-post.html">Blog Post</a></li>
+                                            <li><a href="receipe-post.html">Receipe Post</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="elements.html">Elements</a></li>
+                                        </ul>
+                                        <ul class="single-mega cn-col-4">
+                                            <li class="title">Catagory</li>
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="about.html">About Us</a></li>
+                                            <li><a href="blog-post.html">Blog Post</a></li>
+                                            <li><a href="receipe-post.html">Receipe Post</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="elements.html">Elements</a></li>
+                                        </ul>
+                                        <div class="single-mega cn-col-4">
+                                            <div class="receipe-slider owl-carousel">
+                                                <a href="#"><img src="img/bg-img/bg1.jpg" alt=""></a>
+                                                <a href="#"><img src="img/bg-img/bg6.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li> --}}
+                                <li><a href="{{ asset('themes/delicious/receipe-post.html') }}">Receipies</a></li>
+                                <li><a href="{{ asset('themes/delicious/receipe-post.html') }}">4 Vegans</a></li>
+                                {{-- <li><a href="{ asset('themes/delicious/contact.html') }}">Contact</a></li> --}}
+                                </ul>
+
+                                <!-- Newsletter Form -->
+                                <div class="search-btn">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </div>
+
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    @yield('contenido')
+    <footer class="footer-area" style="bottom:0;">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-12 h-100 d-flex flex-wrap align-items-center justify-content-between">
+                    <!-- Footer Social Info -->
+                    <div class="footer-social-info text-right">
+                        <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    </div>
+                    <!-- Footer Logo -->
+                    <div class="footer-logo">
+                        <a href="index.html"><img src="{{ asset('themes/delicious/img/core-img/logo.png') }}" alt=""></a>
+                    </div>
+                    <!-- Copywrite -->
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
+                        is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                            target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{{ asset('themes/delicious/js/jquery/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('themes/delicious/js/plugins/plugins.js') }}"></script>
+    <script src="{{ asset('themes/delicious/js/active.js') }}"></script>
 </body>
 
 </html>

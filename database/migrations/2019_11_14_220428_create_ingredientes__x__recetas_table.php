@@ -14,12 +14,12 @@ class CreateIngredientesXRecetasTable extends Migration
     public function up()
     {
         Schema::create('ingredientes__x__recetas', function (Blueprint $table) {
-            $table->bigIncrements('ingrediente_receta_id');
+            $table->bigIncrements('id');
             $table->string('indrediente_receta_cantidad');
             $table->unsignedBigInteger('ingrediente_ing_id');
-            $table->foreign('ingrediente_ing_id')->references('ingrediente_id')->on('Ingredientes');
+            $table->foreign('ingrediente_ing_id')->references('id')->on('Ingredientes');
             $table->unsignedBigInteger('receta_rec_id');
-            $table->foreign('receta_rec_id')->references('receta_id')->on('Recetas');
+            $table->foreign('receta_rec_id')->references('id')->on('Recetas');
             $table->timestamps();
         });
     }
